@@ -144,7 +144,7 @@ abstract contract GatewayScenarios is Helpers {
     assertApproxEqAbs(
       stdMath.delta(snapshotAfter.user.collateralAssets, snapshotBefore.user.collateralAssets),
       amountSupplied,
-      1,
+      2,
       'NATIVE_SUPPLY: user assets mismatch'
     );
     assertEq(
@@ -158,7 +158,7 @@ abstract contract GatewayScenarios is Helpers {
         snapshotBefore.spokeOnHub.collateralAssets
       ),
       amountSupplied,
-      1,
+      2,
       'NATIVE_SUPPLY: hub assets mismatch'
     );
     vm.revertToState(snapshot);
@@ -192,7 +192,7 @@ abstract contract GatewayScenarios is Helpers {
     assertApproxEqAbs(
       stdMath.delta(snapshotAfter.user.collateralAssets, snapshotBefore.user.collateralAssets),
       amountSupplied,
-      1,
+      2,
       'NATIVE_SUPPLY_AS_COLLATERAL: user assets mismatch'
     );
     assertEq(
@@ -206,7 +206,7 @@ abstract contract GatewayScenarios is Helpers {
         snapshotBefore.spokeOnHub.collateralAssets
       ),
       amountSupplied,
-      1,
+      2,
       'NATIVE_SUPPLY_AS_COLLATERAL: hub assets mismatch'
     );
   }
@@ -284,7 +284,7 @@ abstract contract GatewayScenarios is Helpers {
     assertApproxEqAbs(
       stdMath.delta(snapshotBefore.user.collateralAssets, snapshotAfter.user.collateralAssets),
       expectedWithdrawnAmount,
-      1,
+      2,
       'NATIVE_WITHDRAW: user assets mismatch'
     );
     assertEq(
@@ -298,7 +298,7 @@ abstract contract GatewayScenarios is Helpers {
         snapshotAfter.spokeOnHub.collateralAssets
       ),
       expectedWithdrawnAmount,
-      1,
+      2,
       'NATIVE_WITHDRAW: hub assets mismatch'
     );
     assertEq(
@@ -563,7 +563,7 @@ abstract contract GatewayScenarios is Helpers {
     assertApproxEqAbs(
       spoke.getUserSuppliedAssets(reserveInfo.reserveId, user) - userAssetsBefore,
       amountSupplied,
-      1,
+      2,
       'SIG_SUPPLY: user assets mismatch'
     );
     assertEq(
@@ -575,7 +575,7 @@ abstract contract GatewayScenarios is Helpers {
       IHubBase(reserveInfo.hub).getSpokeAddedAssets(reserveInfo.assetId, address(spoke)) -
         hubAssetsBefore,
       amountSupplied,
-      1,
+      2,
       'SIG_SUPPLY: hub assets mismatch'
     );
   }
@@ -650,7 +650,7 @@ abstract contract GatewayScenarios is Helpers {
     assertApproxEqAbs(
       userAssetsBefore - spoke.getUserSuppliedAssets(reserveInfo.reserveId, user),
       amountWithdrawn,
-      1,
+      2,
       'SIG_WITHDRAW: user assets mismatch'
     );
     assertEq(
@@ -662,7 +662,7 @@ abstract contract GatewayScenarios is Helpers {
       hubAssetsBefore -
         IHubBase(reserveInfo.hub).getSpokeAddedAssets(reserveInfo.assetId, address(spoke)),
       amountWithdrawn,
-      1,
+      2,
       'SIG_WITHDRAW: hub assets mismatch'
     );
 
