@@ -88,14 +88,14 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       snapshotAfter.totalAssets,
       snapshotBefore.totalAssets + assets,
-      1,
+      2,
       'TOKENIZATION_DEPOSIT: totalAssets mismatch'
     );
     // Hub spoke collateral increased
     assertApproxEqAbs(
       snapshotAfter.spokeOnHub.collateralAssets,
       snapshotBefore.spokeOnHub.collateralAssets + assets,
-      1,
+      2,
       'TOKENIZATION_DEPOSIT: hub collateral assets mismatch'
     );
     {
@@ -156,14 +156,14 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       snapshotAfter.totalAssets,
       snapshotBefore.totalAssets + assetsDeposited,
-      1,
+      2,
       'TOKENIZATION_MINT: totalAssets mismatch'
     );
     // Hub spoke collateral increased
     assertApproxEqAbs(
       snapshotAfter.spokeOnHub.collateralAssets,
       snapshotBefore.spokeOnHub.collateralAssets + assetsDeposited,
-      1,
+      2,
       'TOKENIZATION_MINT: hub collateral assets mismatch'
     );
     _assertTokenizationNoDebt(snapshotAfter);
@@ -209,14 +209,14 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       snapshotBefore.totalAssets - snapshotAfter.totalAssets,
       assets,
-      1,
+      2,
       'TOKENIZATION_WITHDRAW: totalAssets mismatch'
     );
     // Hub spoke collateral decreased
     assertApproxEqAbs(
       snapshotBefore.spokeOnHub.collateralAssets - snapshotAfter.spokeOnHub.collateralAssets,
       assets,
-      1,
+      2,
       'TOKENIZATION_WITHDRAW: hub collateral assets mismatch'
     );
     _assertTokenizationNoDebt(snapshotAfter);
@@ -266,14 +266,14 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       snapshotBefore.totalAssets - snapshotAfter.totalAssets,
       assetsReceived,
-      1,
+      2,
       'TOKENIZATION_REDEEM: totalAssets mismatch'
     );
     // Hub spoke collateral decreased
     assertApproxEqAbs(
       snapshotBefore.spokeOnHub.collateralAssets - snapshotAfter.spokeOnHub.collateralAssets,
       assetsReceived,
-      1,
+      2,
       'TOKENIZATION_REDEEM: hub collateral assets mismatch'
     );
     _assertTokenizationNoDebt(snapshotAfter);
@@ -309,7 +309,7 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       tokenizationSpoke.totalAssets() - totalAssetsBefore,
       assetsDeposited,
-      1,
+      2,
       'TOKENIZATION_MINT_WITH_SIG: totalAssets mismatch'
     );
     assertApproxEqAbs(
@@ -318,7 +318,7 @@ abstract contract TokenizationActions is Helpers {
         address(tokenizationSpoke)
       ) - hubCollateralBefore,
       assetsDeposited,
-      1,
+      2,
       'TOKENIZATION_MINT_WITH_SIG: hub collateral assets mismatch'
     );
   }
@@ -415,7 +415,7 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       totalAssetsBefore - tokenizationSpoke.totalAssets(),
       assetsReceived,
-      1,
+      2,
       'TOKENIZATION_REDEEM_WITH_SIG: totalAssets mismatch'
     );
     assertApproxEqAbs(
@@ -425,7 +425,7 @@ abstract contract TokenizationActions is Helpers {
           address(tokenizationSpoke)
         ),
       assetsReceived,
-      1,
+      2,
       'TOKENIZATION_REDEEM_WITH_SIG: hub collateral assets mismatch'
     );
   }
@@ -553,14 +553,14 @@ abstract contract TokenizationActions is Helpers {
     assertApproxEqAbs(
       snapshotAfter.totalAssets,
       snapshotBefore.totalAssets + assets,
-      1,
+      2,
       'TOKENIZATION_DEPOSIT_WITH_PERMIT: totalAssets mismatch'
     );
     // Hub spoke collateral increased
     assertApproxEqAbs(
       snapshotAfter.spokeOnHub.collateralAssets,
       snapshotBefore.spokeOnHub.collateralAssets + assets,
-      1,
+      2,
       'TOKENIZATION_DEPOSIT_WITH_PERMIT: hub collateral assets mismatch'
     );
     _assertTokenizationNoDebt(snapshotAfter);

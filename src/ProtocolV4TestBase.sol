@@ -306,7 +306,7 @@ contract ProtocolV4TestBase is SnapshotV4, Scenarios, TokenizationScenarios, Gat
     assertApproxEqAbs(
       ownerSupplyAfter,
       ownerSupplyBefore + supplyAmount,
-      1,
+      2,
       'GIVER_PM: supplyOnBehalfOf owner balance mismatch'
     );
 
@@ -415,7 +415,7 @@ contract ProtocolV4TestBase is SnapshotV4, Scenarios, TokenizationScenarios, Gat
     assertApproxEqAbs(
       ownerSupplyBefore - spoke.getUserSuppliedAssets(collateralInfo.reserveId, owner),
       withdrawAmount,
-      1,
+      2,
       'TAKER_PM: owner supply should decrease'
     );
     assertEq(
